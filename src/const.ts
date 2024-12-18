@@ -5,6 +5,7 @@ export enum AppRoutes {
   Film = '/films',
   AddReview = '/films',
   Player = '/player',
+  Register = '/register',
 }
 
 export enum AuthenticationStatus {
@@ -28,6 +29,7 @@ export enum APIRoute {
   Comments = '/comments',
   Login = '/login',
   Logout = '/logout',
+  Register = '/register',
 }
 
 export const STARS_COUNT = 10;

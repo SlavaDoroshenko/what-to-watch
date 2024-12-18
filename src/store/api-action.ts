@@ -9,6 +9,7 @@ import { UserData } from '../types/user-data';
 import { Film, Comment } from '../types/types';
 import { CommentData } from '../types/comment-data';
 import { setUserInfo } from './user-process/user-process';
+import { RegData } from '../types/register-data';
 
 export const fetchFilms = createAsyncThunk<
   Film[],
@@ -124,6 +125,21 @@ export const loginAction = createAsyncThunk<
   }
 >('user/login', async ({ email, password }, { dispatch, extra: api }) => {
   const { data } = await api.post<UserData>(APIRoute.Login, { email, password });
+  setToken(data.token);
+  dispatch(setUserInfo({ avatarUrl: data.avatarUrl, name: data.name }));
+  dispatch(redirectToRoute(AppRoutes.Main));
+});
+
+export const registerAction = createAsyncThunk<
+  void,
+  RegData,
+  {
+    dispatch: AppDispatch;
+    state: State;
+    extra: AxiosInstance;
+  }
+>('user/register', async ({ name, email, password }, { dispatch, extra: api }) => {
+  const { data } = await api.post<UserData>(APIRoute.Register, { name, email, password });
   setToken(data.token);
   dispatch(setUserInfo({ avatarUrl: data.avatarUrl, name: data.name }));
   dispatch(redirectToRoute(AppRoutes.Main));

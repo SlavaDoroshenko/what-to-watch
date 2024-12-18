@@ -8,7 +8,6 @@ import { MyList } from '../../pages/my-list/my-list';
 import { Login } from '../../pages/login/login';
 import { PageFilm } from '../../pages/film/page-film';
 import { AddReview } from '../../pages/add-review/add-review';
-import { Player } from '../../pages/player/player';
 import { PageNotFound } from '../../pages/page-not-found/page-not-found';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import browserHistory from '../../services/browser-history';
@@ -17,6 +16,7 @@ import { getFilms, getIsDataLoaded } from '../../store/films-data/selectors';
 import { getAuthorizationStatus } from '../../store/user-process/selectors';
 import { useEffect } from 'react';
 import { checkLoginAction } from '../../store/api-action';
+import { Register } from '../../pages/register/register';
 
 function App(): JSX.Element {
   const films = useAppSelector(getFilms);
@@ -36,6 +36,7 @@ function App(): JSX.Element {
             authorizationStatus === AuthenticationStatus.Auth ? <Navigate to={AppRoutes.Main} /> : <Login />
           }
         />
+        <Route path={AppRoutes.Register} element={<Register />} />
         <Route
           path={AppRoutes.MyList}
           element={
@@ -53,7 +54,6 @@ function App(): JSX.Element {
             </PrivateRoute>
           }
         />
-        <Route path={`${AppRoutes.Player}/:id`} element={<Player />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
     </HistoryRouter>

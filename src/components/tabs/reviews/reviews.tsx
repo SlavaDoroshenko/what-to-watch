@@ -32,12 +32,10 @@ export const Reviews = ({ comments }: ReviewsProps): JSX.Element => {
           {chunk.map((comment) => (
             <div className="review" key={comment.id}>
               <blockquote className="review__quote">
-                <p className="review__text">{comment.comment}</p>
+                <p className="review__text">{comment.text}</p>
                 <footer className="review__details">
-                  <cite className="review__author">{comment.user.name}</cite>
-                  <time className="review__date" dateTime={comment.date}>
-                    {formatDate(comment.date)}
-                  </time>
+                  <cite className="review__author">{comment.author}</cite>
+                  <time className="review__date">{formatDate(comment.created_at)}</time>
                 </footer>
               </blockquote>
               <div className="review__rating">{comment.rating}</div>

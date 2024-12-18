@@ -1444,6 +1444,25 @@ main {
   border: 1px solid rgba(217, 205, 141, 0.7);
 }
 
+.sign-up__btn {
+  display: block;
+  width: 100%;
+  padding: 24px 40px;
+  background: none;
+  border-radius: 8px;
+  -webkit-transition: border-color 0.2s;
+  transition: border-color 0.2s;
+  font-size: 30px;
+  line-height: 44px;
+  text-align: center;
+  color: #d9cd8d;
+  cursor: pointer;
+}
+.sign-up__btn:hover,
+.sign-up__btn:focus {
+  border: 1px solid rgba(217, 205, 141, 0.7);
+}
+
 .sign-in__reset-password {
   text-align: center;
 }

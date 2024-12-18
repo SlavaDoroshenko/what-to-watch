@@ -19,12 +19,9 @@ export type Film = {
 };
 
 export type Comment = {
-  comment: string;
-  date: string;
+  text: string;
+  created_at: string;
   id: number;
   rating: number;
-  user: {
-    id: number;
-    name: string;
-  };
+  author: string;
 };
